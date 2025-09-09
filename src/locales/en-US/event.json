@@ -1,0 +1,12 @@
+{
+    "correlator": "Correlator",
+    "created": "Occurred At",
+    "id": "ID",
+    "namespace": "Namespace",
+    "reference": "Reference",
+    "detail": "Detail",
+    "sequence": "sequence",
+    "topic": "Topic",
+    "tx": "Transaction ID",
+    "type": "Type"
+}

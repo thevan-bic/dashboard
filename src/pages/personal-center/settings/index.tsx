@@ -1,5 +1,5 @@
-import { BasicContent } from "#src/components";
+import { BasicContent } from '@/components';
 
 export default function Settings() {
-	return <BasicContent>Settings</BasicContent>;
+    return <BasicContent>Settings</BasicContent>;
 }

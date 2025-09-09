@@ -1,45 +1,40 @@
-import type { UserInfoType } from "#src/api/user/types";
-import { fetchUserInfo } from "#src/api/user";
+import { fetchUserInfo } from '@/api/user';
+import type { UserInfoType } from '@/api/user/types';
 
-import { create } from "zustand";
+import { create } from 'zustand';
 
 const initialState = {
-	id: "",
-	avatar: "",
-	username: "",
-	email: "",
-	phoneNumber: "",
-	description: "",
-	roles: [],
-	// menus: [],
+    id: '',
+    avatar: '',
+    username: '',
+    email: '',
+    phoneNumber: '',
+    description: '',
+    roles: [],
+    // menus: [],
 };
 
 type UserState = UserInfoType;
 
 interface UserAction {
-	getUserInfo: () => Promise<UserInfoType>
-	reset: () => void
-};
+    getUserInfo: () => Promise<UserInfoType>;
+    reset: () => void;
+}
 
-export const useUserStore = create<UserState & UserAction>()(
+export const useUserStore = create<UserState & UserAction>()((set) => ({
+    ...initialState,
 
-	set => ({
-		...initialState,
+    getUserInfo: async () => {
+        const response = await fetchUserInfo();
+        set({
+            ...response,
+        });
+        return response;
+    },
 
-		getUserInfo: async () => {
-			const response = await fetchUserInfo();
-			set({
-				...response.result,
-			});
-			return response.result;
-		},
-
-		reset: () => {
-			return set({
-				...initialState,
-			});
-		},
-
-	}),
-
-);
+    reset: () => {
+        return set({
+            ...initialState,
+        });
+    },
+}));

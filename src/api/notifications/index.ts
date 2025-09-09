@@ -1,8 +1,6 @@
-import type { NotificationItem } from "#src/layout/widgets/notification/types";
-import { request } from "#src/utils";
+import type { NotificationItem } from '@/layout/widgets/notification/types';
+import { request } from '@/utils';
 
 export function fetchNotifications() {
-	return request
-		.get("notifications")
-		.json<ApiResponse<NotificationItem[]>>();
+    return request.get('notifications').json<ApiResponse<NotificationItem[]>>();
 }

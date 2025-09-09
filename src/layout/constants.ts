@@ -27,7 +27,7 @@ export const tabbarHeight = 35;
  * @zh 默认命名空间
  * @en Default namespace
  */
-export const DEFAULT_NAMESPACE = "react-antd-admin";
+export const DEFAULT_NAMESPACE = 'react-antd-admin';
 
 /**
  * @zh 主内容区域的元素 ID

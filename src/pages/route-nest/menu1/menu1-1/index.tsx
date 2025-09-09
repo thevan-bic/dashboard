@@ -1,5 +1,5 @@
-import { BasicContent } from "#src/components";
+import { BasicContent } from '@/components';
 
 export default function Menu1And1() {
-	return <BasicContent>menu1-1</BasicContent>;
+    return <BasicContent>menu1-1</BasicContent>;
 }

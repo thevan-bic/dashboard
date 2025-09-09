@@ -1,10 +1,10 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
-import { usePreferences } from "#src/hooks";
+import { usePreferences } from '@/hooks';
 
-import { ConfigProvider, theme } from "antd";
-import { useContext } from "react";
-import { ThemeProvider } from "react-jss";
+import { ConfigProvider, theme } from 'antd';
+import { useContext } from 'react';
+import { ThemeProvider } from 'react-jss';
 
 /**
  * 自定义的JSS主题提供者组件
@@ -13,13 +13,13 @@ import { ThemeProvider } from "react-jss";
  * @en Custom JSS theme provider component, used to provide JSS themes in React applications
  */
 export interface JSSThemeProviderProps {
-	/**
-	 * 子组件
-	 *
-	 * @zh 子组件，该组件将接收JSS主题
-	 * @en Children components, which will receive the JSS theme
-	 */
-	children: ReactNode
+    /**
+     * 子组件
+     *
+     * @zh 子组件，该组件将接收JSS主题
+     * @en Children components, which will receive the JSS theme
+     */
+    children: ReactNode;
 }
 
 const { useToken } = theme;
@@ -34,14 +34,14 @@ const { useToken } = theme;
  * @returns {JSX.Element} 返回的JSX元素
  */
 export function JSSThemeProvider({ children }: JSSThemeProviderProps) {
-	const antdContext = useContext(ConfigProvider.ConfigContext);
-	const prefixCls = antdContext.getPrefixCls();
-	const { token } = useToken();
-	const { theme, isDark, isLight } = usePreferences();
+    const antdContext = useContext(ConfigProvider.ConfigContext);
+    const prefixCls = antdContext.getPrefixCls();
+    const { token } = useToken();
+    const { theme, isDark, isLight } = usePreferences();
 
-	return (
-		<ThemeProvider theme={{ token, theme, isDark, isLight, prefixCls }}>
-			{children}
-		</ThemeProvider>
-	);
+    return (
+        <ThemeProvider theme={{ token, theme, isDark, isLight, prefixCls }}>
+            {children}
+        </ThemeProvider>
+    );
 }
